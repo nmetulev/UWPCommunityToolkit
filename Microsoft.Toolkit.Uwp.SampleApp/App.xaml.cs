@@ -20,6 +20,7 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Toolkit.Uwp.Helpers;
 
 namespace Microsoft.Toolkit.Uwp.SampleApp
 {
@@ -77,7 +78,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             if (e.PreviousExecutionState != ApplicationExecutionState.Running
                 && e.PreviousExecutionState != ApplicationExecutionState.Suspended)
             {
-                await RunAppInitialization(e?.Arguments);
+                MultiInstanceHelper.Instance.Register(async () => await RunAppInitialization(e?.Arguments));
             }
         }
 
