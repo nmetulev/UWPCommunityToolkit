@@ -70,6 +70,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
         /// <param name="e">Details about the launch request and process.</param>
         protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
+            if (e.ViewSwitcher == null) ApplicationViewSwitcher.DisableSystemViewActivationPolicy();
             if (e.PrelaunchActivated)
             {
                 return;
