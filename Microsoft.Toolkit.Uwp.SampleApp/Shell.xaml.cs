@@ -22,6 +22,9 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Windows.Foundation.Metadata;
+using Windows.UI.Xaml.Media;
+using Windows.UI;
 
 namespace Microsoft.Toolkit.Uwp.SampleApp
 {
@@ -123,6 +126,54 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             sampleCategories.Remove(moreResources);
 
             HamburgerMenu.ItemsSource = sampleCategories;
+
+            // Set the background color using a code ApiInfo check.
+            // Consider replacing with Conditional XAML in the future.
+            if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.AcrylicBrush"))
+            {
+                HamburgerMenu.Background = new AcrylicBrush()
+                {
+                    FallbackColor = Colors.White,
+                    TintColor = Colors.White,
+                    TintOpacity = 1
+                };
+
+                HamburgerMenu.PaneBackground = new AcrylicBrush()
+                {
+                    FallbackColor = Colors.Black,
+                    TintColor = Colors.Black,
+                    TintOpacity = 1
+                };
+
+                SamplePickerGrid.Background = new AcrylicBrush()
+                {
+                    FallbackColor = Color.FromArgb(255, 243, 243, 243),
+                    TintColor = Color.FromArgb(255, 243, 243, 243),
+                    TintOpacity = 0.96
+                };
+
+                SamplePickerDetailsGrid.Background = new AcrylicBrush()
+                {
+                    FallbackColor = Colors.White,
+                    TintColor = Colors.Black,
+                    TintOpacity = .20
+                };
+
+                TitleGrid.Background = new AcrylicBrush()
+                {
+                    FallbackColor = Colors.White,
+                    TintColor = Colors.White,
+                    TintOpacity = 1
+                };
+            }
+            else
+            {
+                HamburgerMenu.Background = new SolidColorBrush(Colors.White);
+                HamburgerMenu.PaneBackground = new SolidColorBrush(Colors.Black);
+                SamplePickerGrid.Background = new SolidColorBrush(Color.FromArgb(255, 243, 243, 243)) { Opacity = 0.96 };
+                SamplePickerDetailsGrid.Background = new SolidColorBrush(Colors.Black) { Opacity = 0.2 };
+                TitleGrid.Background = new SolidColorBrush(Colors.White);
+            }
 
             // Options
             HamburgerMenu.OptionsItemsSource = new[]

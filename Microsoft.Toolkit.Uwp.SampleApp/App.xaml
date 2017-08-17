@@ -588,7 +588,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="controls1:HamburgerMenu">
-                        <Grid Background="{TemplateBinding PaneBackground}">
+                        <Grid Background="{TemplateBinding Background}">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="48" />
                                 <RowDefinition Height="*" />
@@ -702,17 +702,17 @@
                                        DisplayMode="Inline"
                                        IsPaneOpen="{Binding IsPaneOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                        IsTabStop="False"
-                                       OpenPaneLength="{TemplateBinding OpenPaneLength}"
-                                       PaneBackground="{TemplateBinding PaneBackground}">
+                                       OpenPaneLength="{TemplateBinding OpenPaneLength}">
                                 <SplitView.Pane>
                                     <Grid x:Name="PaneGrid"
-                                          FlowDirection="LeftToRight">
+                                          FlowDirection="LeftToRight"
+                                          Background="{TemplateBinding PaneBackground}">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="48" />
                                             <RowDefinition Height="*" />
                                         </Grid.RowDefinitions>
 
-                                        <Grid Background="{TemplateBinding PaneBackground}">
+                                        <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="48" />
                                                 <ColumnDefinition Width="*" />
