@@ -146,7 +146,6 @@
                             ItemTemplate="{StaticResource HorizontalItemTemplate}"
                             OptionsItemClick="HamburgerMenu_OnOptionsItemClick"
                             OptionsItemTemplate="{StaticResource VerticalOptionTemplate}"
-                            PaneBackground="{StaticResource Brush-Grey-02}"
                             Style="{StaticResource VerticalHamburgerMenu}">
         <Grid>
             <Grid.RowDefinitions>
@@ -158,7 +157,6 @@
 
             <Grid x:Name="TitleGrid"
                   Height="48"
-                  Background="White"
                   Visibility="Collapsed">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="48" />
@@ -332,7 +330,6 @@
 
             <Grid x:Name="SamplePickerGrid"
                   Grid.Row="1"
-                  Background="White"
                   Visibility="Collapsed">
                 <ListView x:Name="SamplePickerListView"
                           IsItemClickEnabled="True"
@@ -358,7 +355,6 @@
 
             <Grid x:Name="SamplePickerDetailsGrid"
                   Grid.Row="2"
-                  Background="White"
                   Visibility="Collapsed">
                 <Grid Width="700"
                       Height="192"
@@ -465,12 +461,10 @@
                         <Setter Target="HamburgerMenu.Style" Value="{StaticResource HorizontalHamburgerMenu}" />
                         <Setter Target="HamburgerMenu.ItemTemplate" Value="{StaticResource HorizontalItemTemplate}" />
                         <Setter Target="HamburgerMenu.OptionsItemTemplate" Value="{StaticResource HorizontalOptionTemplate}" />
-                        <Setter Target="HamburgerMenu.PaneBackground" Value="White" />
                         <Setter Target="HamburgerMenu.PaneForeground" Value="Black" />
 
                         <Setter Target="TitleGrid.Visibility" Value="Collapsed" />
                     </VisualState.Setters>
-
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
